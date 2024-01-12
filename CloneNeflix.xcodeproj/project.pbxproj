@@ -1,0 +1,424 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6B5B93BE2B4FD16500DF5E07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5B93BD2B4FD16500DF5E07 /* AppDelegate.swift */; };
+		6B5B93C02B4FD16500DF5E07 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5B93BF2B4FD16500DF5E07 /* SceneDelegate.swift */; };
+		6B5B93C22B4FD16500DF5E07 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5B93C12B4FD16500DF5E07 /* MainTabBarViewController.swift */; };
+		6B5B93C72B4FD16700DF5E07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B5B93C62B4FD16700DF5E07 /* Assets.xcassets */; };
+		6B5B93CA2B4FD16700DF5E07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B5B93C82B4FD16700DF5E07 /* LaunchScreen.storyboard */; };
+		6B5B93D52B4FD87600DF5E07 /* UpComingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5B93D42B4FD87600DF5E07 /* UpComingViewController.swift */; };
+		6B5B93D72B4FD88500DF5E07 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5B93D62B4FD88500DF5E07 /* SearchViewController.swift */; };
+		6B5B93D92B4FD89100DF5E07 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5B93D82B4FD89100DF5E07 /* DownloadsViewController.swift */; };
+		6B5B93DB2B4FD8E100DF5E07 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5B93DA2B4FD8E100DF5E07 /* HomeViewController.swift */; };
+		6B5B93E02B4FE85200DF5E07 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5B93DF2B4FE85200DF5E07 /* CollectionViewTableViewCell.swift */; };
+		6B5B93E32B502D2F00DF5E07 /* HeroHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5B93E22B502D2F00DF5E07 /* HeroHeaderView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6B5B93BA2B4FD16500DF5E07 /* CloneNeflix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloneNeflix.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B5B93BD2B4FD16500DF5E07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6B5B93BF2B4FD16500DF5E07 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		6B5B93C12B4FD16500DF5E07 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		6B5B93C62B4FD16700DF5E07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6B5B93C92B4FD16700DF5E07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6B5B93CB2B4FD16700DF5E07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B5B93D42B4FD87600DF5E07 /* UpComingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingViewController.swift; sourceTree = "<group>"; };
+		6B5B93D62B4FD88500DF5E07 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		6B5B93D82B4FD89100DF5E07 /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
+		6B5B93DA2B4FD8E100DF5E07 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		6B5B93DF2B4FE85200DF5E07 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		6B5B93E22B502D2F00DF5E07 /* HeroHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6B5B93B72B4FD16500DF5E07 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6B5B93B12B4FD16500DF5E07 = {
+			isa = PBXGroup;
+			children = (
+				6B5B93BC2B4FD16500DF5E07 /* CloneNeflix */,
+				6B5B93BB2B4FD16500DF5E07 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6B5B93BB2B4FD16500DF5E07 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6B5B93BA2B4FD16500DF5E07 /* CloneNeflix.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6B5B93BC2B4FD16500DF5E07 /* CloneNeflix */ = {
+			isa = PBXGroup;
+			children = (
+				6B5B93DE2B4FE82200DF5E07 /* Resources */,
+				6B5B93DD2B4FE81B00DF5E07 /* Manager */,
+				6B5B93DC2B4FE76E00DF5E07 /* ViewModel */,
+				6B5B93D32B4FD1FE00DF5E07 /* Models */,
+				6B5B93D22B4FD1F600DF5E07 /* Controller */,
+				6B5B93D12B4FD1EC00DF5E07 /* View */,
+				6B5B93BD2B4FD16500DF5E07 /* AppDelegate.swift */,
+				6B5B93BF2B4FD16500DF5E07 /* SceneDelegate.swift */,
+				6B5B93C62B4FD16700DF5E07 /* Assets.xcassets */,
+				6B5B93C82B4FD16700DF5E07 /* LaunchScreen.storyboard */,
+				6B5B93CB2B4FD16700DF5E07 /* Info.plist */,
+				6B5B93C12B4FD16500DF5E07 /* MainTabBarViewController.swift */,
+			);
+			path = CloneNeflix;
+			sourceTree = "<group>";
+		};
+		6B5B93D12B4FD1EC00DF5E07 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6B5B93DF2B4FE85200DF5E07 /* CollectionViewTableViewCell.swift */,
+				6B5B93E22B502D2F00DF5E07 /* HeroHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6B5B93D22B4FD1F600DF5E07 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6B5B93DA2B4FD8E100DF5E07 /* HomeViewController.swift */,
+				6B5B93D42B4FD87600DF5E07 /* UpComingViewController.swift */,
+				6B5B93D62B4FD88500DF5E07 /* SearchViewController.swift */,
+				6B5B93D82B4FD89100DF5E07 /* DownloadsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6B5B93D32B4FD1FE00DF5E07 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6B5B93DC2B4FE76E00DF5E07 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6B5B93DD2B4FE81B00DF5E07 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		6B5B93DE2B4FE82200DF5E07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6B5B93B92B4FD16500DF5E07 /* CloneNeflix */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6B5B93CE2B4FD16700DF5E07 /* Build configuration list for PBXNativeTarget "CloneNeflix" */;
+			buildPhases = (
+				6B5B93B62B4FD16500DF5E07 /* Sources */,
+				6B5B93B72B4FD16500DF5E07 /* Frameworks */,
+				6B5B93B82B4FD16500DF5E07 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CloneNeflix;
+			productName = CloneNeflix;
+			productReference = 6B5B93BA2B4FD16500DF5E07 /* CloneNeflix.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6B5B93B22B4FD16500DF5E07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					6B5B93B92B4FD16500DF5E07 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = 6B5B93B52B4FD16500DF5E07 /* Build configuration list for PBXProject "CloneNeflix" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6B5B93B12B4FD16500DF5E07;
+			productRefGroup = 6B5B93BB2B4FD16500DF5E07 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6B5B93B92B4FD16500DF5E07 /* CloneNeflix */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6B5B93B82B4FD16500DF5E07 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B5B93CA2B4FD16700DF5E07 /* LaunchScreen.storyboard in Resources */,
+				6B5B93C72B4FD16700DF5E07 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6B5B93B62B4FD16500DF5E07 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B5B93D72B4FD88500DF5E07 /* SearchViewController.swift in Sources */,
+				6B5B93D52B4FD87600DF5E07 /* UpComingViewController.swift in Sources */,
+				6B5B93E02B4FE85200DF5E07 /* CollectionViewTableViewCell.swift in Sources */,
+				6B5B93D92B4FD89100DF5E07 /* DownloadsViewController.swift in Sources */,
+				6B5B93E32B502D2F00DF5E07 /* HeroHeaderView.swift in Sources */,
+				6B5B93C22B4FD16500DF5E07 /* MainTabBarViewController.swift in Sources */,
+				6B5B93BE2B4FD16500DF5E07 /* AppDelegate.swift in Sources */,
+				6B5B93DB2B4FD8E100DF5E07 /* HomeViewController.swift in Sources */,
+				6B5B93C02B4FD16500DF5E07 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6B5B93C82B4FD16700DF5E07 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6B5B93C92B4FD16700DF5E07 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6B5B93CC2B4FD16700DF5E07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6B5B93CD2B4FD16700DF5E07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6B5B93CF2B4FD16700DF5E07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CloneNeflix/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = no.CloneNeflix;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6B5B93D02B4FD16700DF5E07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CloneNeflix/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = no.CloneNeflix;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6B5B93B52B4FD16500DF5E07 /* Build configuration list for PBXProject "CloneNeflix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B5B93CC2B4FD16700DF5E07 /* Debug */,
+				6B5B93CD2B4FD16700DF5E07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6B5B93CE2B4FD16700DF5E07 /* Build configuration list for PBXNativeTarget "CloneNeflix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B5B93CF2B4FD16700DF5E07 /* Debug */,
+				6B5B93D02B4FD16700DF5E07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6B5B93B22B4FD16500DF5E07 /* Project object */;
+}
