@@ -8,7 +8,8 @@
 import UIKit
 
 class CollectionViewTableViewCell: UITableViewCell {
-
+    
+    private var titles : [Title] = [Title]()
     static var identifier = "CollectionViewTableViewCell"
     
     private var collectionview : UICollectionView = {
@@ -23,7 +24,7 @@ class CollectionViewTableViewCell: UITableViewCell {
         
         let collectionview = UICollectionView(frame: .zero, collectionViewLayout: layout)
         // đăng ký 1 UICollectionViewCell subclas cho collectionview ,
-        collectionview.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionview.register(TittleCollectionTableViewCell.self , forCellWithReuseIdentifier: TittleCollectionTableViewCell.identifier)
         return collectionview
     }()
     
@@ -57,7 +58,14 @@ class CollectionViewTableViewCell: UITableViewCell {
         // Việc này đảm bảo rằng collectionView sẽ lấp đầy toàn bộ kích thước của view, đồng thời thích nghi với bất kỳ thay đổi kích thước nào của view cha.
         collectionview.frame = contentView.bounds
     }
-    
+    public func setTitle(with titles :[Title]){
+        self.titles = titles
+        
+        DispatchQueue.main.async {
+            [weak self] in
+            self?.collectionview.reloadData()
+        }
+    }
     
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -70,15 +78,21 @@ class CollectionViewTableViewCell: UITableViewCell {
 extension CollectionViewTableViewCell : UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // Trả về số lượng cell trên một hàng của collectionView
-        return 10
+        return titles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // Khai báo ra một đối tượng cell sẽ được dùng lại sau đó với ô được select = index Path
         // và khai báo
+       
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TittleCollectionTableViewCell.identifier, for: indexPath) as? TittleCollectionTableViewCell else {
+            return UICollectionViewCell()
+        }
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .green
+        guard let model = titles[indexPath.row].poster_path else {
+            return UICollectionViewCell()
+        }
+        cell.configure(with: model)
         return cell
     }
     

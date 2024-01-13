@@ -7,9 +7,17 @@
 
 import UIKit
 
+enum Sections : Int {
+    case TrendingMovies = 0
+    case TrendingTv = 1
+    case Popular = 2
+    case UpcomingMovies = 3
+    case TopRated = 4
+}
+
 class HomeViewController: UIViewController {
     //  Khai bao cac header cho tung Cell
-    private var sessionTitles : [String] = ["Trending Movies","Popular","Trending Tv","Upcoming Movies","Top Rated"]
+    private var sectionTitles : [String] = ["Trending Movies","Trending Tv","Popular","Upcoming Movies","Top Rated"]
     
     // Khai bao table ke thua UITabelview
     private let hometable: UITableView = {
@@ -38,6 +46,7 @@ class HomeViewController: UIViewController {
         
         // Xác định phần ở trên của table view là header được khai báo ở trên
         hometable.tableHeaderView = headerview
+        
         
     }
     
@@ -72,7 +81,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController : UITableViewDelegate , UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sessionTitles.count
+        return sectionTitles.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -81,6 +90,55 @@ extension HomeViewController : UITableViewDelegate , UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
+            return UITableViewCell()
+        }
+        switch indexPath.section {
+        case Sections.TrendingMovies.rawValue :
+            API_Caller.shared.getTrendingMovies { results in
+                switch results {
+                case .success(let titles):
+                    cell.setTitle(with: titles)
+                case .failure(let error) :
+                    print(error.localizedDescription)
+                }
+            }
+        case Sections.TrendingTv.rawValue :
+            API_Caller.shared.getTv { results in
+                switch results {
+                case .success(let titles):
+                    cell.setTitle(with: titles)
+                case .failure(let error) :
+                    print(error.localizedDescription)
+                }
+            }
+        case Sections.Popular.rawValue :
+            API_Caller.shared.getPopular { results in
+                switch results {
+                case .success(let titles):
+                    cell.setTitle(with: titles)
+                case .failure(let error) :
+                    print(error.localizedDescription)
+                }
+            }
+        case Sections.UpcomingMovies.rawValue :
+            API_Caller.shared.getUpcoming { results in
+                switch results {
+                case .success(let titles):
+                    cell.setTitle(with: titles)
+                case .failure(let error) :
+                    print(error.localizedDescription)
+                }
+            }
+        case Sections.TopRated.rawValue :
+            API_Caller.shared.getToprate { results in
+                switch results {
+                case .success(let titles):
+                    cell.setTitle(with: titles)
+                case .failure(let error) :
+                    print(error.localizedDescription)
+                }
+            }
+        default:
             return UITableViewCell()
         }
         return cell
@@ -96,13 +154,13 @@ extension HomeViewController : UITableViewDelegate , UITableViewDataSource {
     // sự kiện cuộn màn hình
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         // Độ dài của màn safeArea
-        var defaultOffset = view.safeAreaInsets.top
+        let defaultOffset = view.safeAreaInsets.top
         
-        var offset = scrollView.contentOffset.y + defaultOffset
+        let offset = scrollView.contentOffset.y + defaultOffset
         navigationController?.navigationBar.transform = .init(translationX: 0, y: -offset)
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sessionTitles[section]
+        return sectionTitles[section]
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -111,5 +169,6 @@ extension HomeViewController : UITableViewDelegate , UITableViewDataSource {
         header.textLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         header.textLabel?.frame = CGRect(x: header.bounds.origin.x , y: header.bounds.origin.y, width: 100, height: header.bounds.height)
         header.textLabel?.textColor = .white
+        header.textLabel?.text = header.textLabel?.text?.upperFirstChar()
     }
 }

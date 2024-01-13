@@ -49,6 +49,7 @@ class HeroHeaderView: UIView {
         layer.addSublayer(gradient)
     }
     override init(frame: CGRect) {
+        // add cac element vao view
         super.init(frame:frame)
         addSubview(heroImageView)
         addGradient()
