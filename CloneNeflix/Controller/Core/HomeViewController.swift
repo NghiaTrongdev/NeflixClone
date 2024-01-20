@@ -94,7 +94,7 @@ extension HomeViewController : UITableViewDelegate , UITableViewDataSource {
         }
         switch indexPath.section {
         case Sections.TrendingMovies.rawValue :
-            API_Caller.shared.getTrendingMovies { results in
+            APICaller.shared.getTrendingMovies{ results in
                 switch results {
                 case .success(let titles):
                     cell.setTitle(with: titles)
@@ -103,7 +103,7 @@ extension HomeViewController : UITableViewDelegate , UITableViewDataSource {
                 }
             }
         case Sections.TrendingTv.rawValue :
-            API_Caller.shared.getTv { results in
+            APICaller.shared.getTrendingTvs { results in
                 switch results {
                 case .success(let titles):
                     cell.setTitle(with: titles)
@@ -112,7 +112,7 @@ extension HomeViewController : UITableViewDelegate , UITableViewDataSource {
                 }
             }
         case Sections.Popular.rawValue :
-            API_Caller.shared.getPopular { results in
+            APICaller.shared.getPopular{ results in
                 switch results {
                 case .success(let titles):
                     cell.setTitle(with: titles)
@@ -121,7 +121,7 @@ extension HomeViewController : UITableViewDelegate , UITableViewDataSource {
                 }
             }
         case Sections.UpcomingMovies.rawValue :
-            API_Caller.shared.getUpcoming { results in
+            APICaller.shared.getUpcomingMovies { results in
                 switch results {
                 case .success(let titles):
                     cell.setTitle(with: titles)
@@ -130,7 +130,7 @@ extension HomeViewController : UITableViewDelegate , UITableViewDataSource {
                 }
             }
         case Sections.TopRated.rawValue :
-            API_Caller.shared.getToprate { results in
+            APICaller.shared.getTopRated { results in
                 switch results {
                 case .success(let titles):
                     cell.setTitle(with: titles)

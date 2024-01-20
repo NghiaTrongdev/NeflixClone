@@ -49,7 +49,7 @@ class UpComingViewController: UIViewController {
 */
     private func getVideoUpcoming(){
      
-        API_Caller.shared.getUpcoming {[weak self] results in
+        APICaller.shared.getUpcomingMovies{[weak self] results in
             switch results {
             case .success(let titles):
                 self?.titles = titles
