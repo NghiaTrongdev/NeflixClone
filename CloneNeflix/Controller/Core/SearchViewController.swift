@@ -43,6 +43,7 @@ class SearchViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white
        
         setData()
+        // Kết quả sau khi gõ ô search được hiện tại viewcontroller này
         searchController.searchResultsUpdater = self
     }
     
@@ -85,10 +86,31 @@ extension SearchViewController : UITableViewDataSource , UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let title = titles[indexPath.row]
+        guard let titleName = title.original_name ?? title.original_title else {
+            return
+        }
+        // search dữ liệu bằng youtube api , sau đó trả về phần tử
+        APICaller.shared.getMovie(with: titleName){[weak self] result in
+            switch result{
+            case .success(let videoElement):
+                DispatchQueue.main.async{
+                    let vc = TitllePreviewViewController()
+                    vc.configView(with: TitlePreviewViewModel(title: titleName, youtubeView: videoElement, titleOverview: title.overview ?? " "))
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                }
+            case.failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
     
 }
 
-extension SearchViewController : UISearchResultsUpdating {
+extension SearchViewController : UISearchResultsUpdating , SearchResultsViewControllerDelegate{
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         
@@ -98,7 +120,7 @@ extension SearchViewController : UISearchResultsUpdating {
               let resultsController = searchController.searchResultsController as? SearchResultsViewController else {
                   return
               }
-//        resultsController.delegate = self
+        resultsController.delegate = self
         
         APICaller.shared.search(with: query) { result in
             DispatchQueue.main.async {
@@ -113,7 +135,14 @@ extension SearchViewController : UISearchResultsUpdating {
         }
     }
     
-    
+    func SearchResultsViewControllerDidTapped(_ viewmodel: TitlePreviewViewModel) {
+        
+        DispatchQueue.main.async{ [weak self] in
+            let vc = TitllePreviewViewController()
+            vc.configView(with: viewmodel)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
 
     

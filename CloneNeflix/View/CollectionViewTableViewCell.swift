@@ -6,11 +6,17 @@
 //
 
 import UIKit
+protocol CollectionViewTableViewCellDelegate : AnyObject {
+    func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: TitlePreviewViewModel)
+}
 
 class CollectionViewTableViewCell: UITableViewCell {
     
     private var titles : [Title] = [Title]()
+    
     static var identifier = "CollectionViewTableViewCell"
+    
+    weak var delegate : CollectionViewTableViewCellDelegate?
     
     private var collectionview : UICollectionView = {
         // Khoi tao layout de tung o cua hang duoc thuc hien sap xep theo layout (Flowlayout)
@@ -28,12 +34,6 @@ class CollectionViewTableViewCell: UITableViewCell {
         return collectionview
     }()
     
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = .systemPink
@@ -67,12 +67,6 @@ class CollectionViewTableViewCell: UITableViewCell {
         }
     }
     
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 
 }
 extension CollectionViewTableViewCell : UICollectionViewDelegate,UICollectionViewDataSource {
@@ -95,6 +89,40 @@ extension CollectionViewTableViewCell : UICollectionViewDelegate,UICollectionVie
         cell.configure(with: model)
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let title = titles[indexPath.row]
+        guard let titleName = title.original_title ?? title.original_name else {
+            return
+        }
+        
+        APICaller.shared.getMovie(with: titleName + " trailer"){[weak self] result in
+            switch result{
+            case .success(let video):
+                let title = self?.titles[indexPath.row]
+                guard let overview = title?.overview else {return}
+                guard let strongSelf = self else {return}
+                
+                let model = TitlePreviewViewModel(title: titleName, youtubeView: video, titleOverview: overview)
+                
+                self?.delegate?.collectionViewTableViewCellDidTapCell(strongSelf, viewModel: model)
+            case.failure(let error):
+                print(error.localizedDescription)
+            }
+            
+        }
+    }
+    
+//    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemsAt indexPaths: [IndexPath], point: CGPoint) -> UIContextMenuConfiguration? {
+//        let config = UIContextMenuConfiguration(
+//            identifier: nil,
+//            previewProvider: nil){_ in
+//                let downloadAction = UIAction(title: "Download", state: .off){_ in
+//                        print("Download tapped")
+//                }
+//            }
+//        )
+//        return config
+//    }
     
     
 }

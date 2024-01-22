@@ -16,6 +16,11 @@ enum Sections : Int {
 }
 
 class HomeViewController: UIViewController {
+    
+    private var randomTitle : Title?
+    
+    private var headerView :HeroHeaderView?
+    
     //  Khai bao cac header cho tung Cell
     private var sectionTitles : [String] = ["Trending Movies","Trending Tv","Popular","Upcoming Movies","Top Rated"]
     
@@ -42,11 +47,12 @@ class HomeViewController: UIViewController {
         configureNavbarlogo()
         
         // Khai báo phần header được tự cấu hình và được xác định từ ví trí gốc và có độ lớn 450 points
-        let headerview = HeroHeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
+        headerView = HeroHeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         
         // Xác định phần ở trên của table view là header được khai báo ở trên
-        hometable.tableHeaderView = headerview
-        
+        hometable.tableHeaderView = headerView
+        configHeaderView()
+       
         
     }
     
@@ -75,6 +81,19 @@ class HomeViewController: UIViewController {
         // xét màu cho thanh navigation là trắng
         navigationController?.navigationBar.tintColor = .white
     }
+    func configHeaderView(){
+        APICaller.shared.getTrendingMovies{ [weak self] result in
+            switch result{
+            case .success(let model):
+                var randum = model.randomElement()
+                self?.randomTitle = randum
+                
+                self?.headerView?.configImage(with: TitleModel(titleName: randum?.original_title ?? randum?.original_name ?? "Unkhnown", posterImage: randum?.poster_path ?? "") )
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 
 }
 
@@ -92,6 +111,7 @@ extension HomeViewController : UITableViewDelegate , UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
             return UITableViewCell()
         }
+        cell.delegate = self
         switch indexPath.section {
         case Sections.TrendingMovies.rawValue :
             APICaller.shared.getTrendingMovies{ results in
@@ -170,5 +190,16 @@ extension HomeViewController : UITableViewDelegate , UITableViewDataSource {
         header.textLabel?.frame = CGRect(x: header.bounds.origin.x , y: header.bounds.origin.y, width: 100, height: header.bounds.height)
         header.textLabel?.textColor = .white
         header.textLabel?.text = header.textLabel?.text?.upperFirstChar()
+    }
+}
+
+extension HomeViewController : CollectionViewTableViewCellDelegate {
+    func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: TitlePreviewViewModel) {
+        DispatchQueue.main.async { [weak self] in
+            let vc = TitllePreviewViewController()
+            vc.configView(with: viewModel)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
 }
