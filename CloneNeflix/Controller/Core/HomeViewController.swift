@@ -85,7 +85,7 @@ class HomeViewController: UIViewController {
         APICaller.shared.getTrendingMovies{ [weak self] result in
             switch result{
             case .success(let model):
-                var randum = model.randomElement()
+                let randum = model.randomElement()
                 self?.randomTitle = randum
                 
                 self?.headerView?.configImage(with: TitleModel(titleName: randum?.original_title ?? randum?.original_name ?? "Unkhnown", posterImage: randum?.poster_path ?? "") )
